@@ -1,0 +1,49 @@
+# ============================================
+# E-Commerce Data Pipeline — .dockerignore
+# ============================================
+# Prevents unnecessary files from being copied
+# into Docker build context (faster builds, smaller images).
+
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+
+# Documentation
+README.md
+docs/
+plans/
+implementation_plan.md
+recommended_skills.md
+Project planning.txt
+
+# Skill files
+skill/
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# Other services (not needed in Airflow build)
+grafana/
+docker-compose.yml
+docker-compose*.yml
+Makefile
+*.log
+*.md

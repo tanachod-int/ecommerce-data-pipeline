@@ -1,0 +1,97 @@
+# ============================================
+# E-Commerce Data Pipeline — .gitignore
+# ============================================
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+*.pyc
+
+# === Virtual Environment ===
+venv/
+.venv/
+env/
+
+# === IDE ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.iml
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+ehthumbs_vista.db
+$RECYCLE.BIN/
+*.stackdump
+
+# === Docker ===
+*.log
+
+# === PostgreSQL data (mounted volume) ===
+postgres_data/
+
+# === Airflow ===
+airflow/logs/
+airflow/plugins/
+airflow/*.pid
+airflow/__pycache__/
+airflow/dags/__pycache__/
+airflow/dags/scripts/__pycache__/
+
+# === Great Expectations ===
+great_expectations/uncommitted/
+great_expectations/checkpoints/
+great_expectations/data_docs/
+great_expectations/plugins/
+great_expectations/profilers/
+
+# === dbt ===
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/.user.yml
+
+# === Grafana ===
+grafana/data/
+grafana/*.db
+
+# === Environment Variables ===
+.env
+.env.*
+!.env.example
+
+# === Testing & Coverage ===
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.cache/
+
+# === Jupyter Notebook ===
+.ipynb_checkpoints/
+
+# === Docker Volumes (local) ===
+data/
+volumes/
+
+# === Misc ===
+*.bak
+*.tmp
+*.orig
+plans/
+
