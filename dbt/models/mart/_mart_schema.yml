@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: mart_daily_revenue
+    description: "Daily aggregated revenue metrics for time-series dashboards"
+    columns:
+      - name: order_date
+        description: "Calendar date of orders"
+        tests:
+          - unique
+          - not_null
+      - name: gross_revenue
+        description: "Sum of line totals before discount"
+        tests:
+          - not_null
+      - name: net_revenue
+        description: "Sum of discounted totals (actual revenue)"
+        tests:
+          - not_null
+      - name: total_orders
+        description: "Count of distinct orders per day"
+        tests:
+          - not_null
+      - name: unique_customers
+        description: "Count of distinct customers per day"
+
+  - name: mart_top_products
+    description: "Product performance ranking by revenue and units sold"
+    columns:
+      - name: product_id
+        description: "Product identifier"
+        tests:
+          - unique
+          - not_null
+      - name: net_revenue
+        description: "Total net revenue from this product"
+        tests:
+          - not_null
+      - name: revenue_rank
+        description: "Rank by net revenue (1 = highest)"
+        tests:
+          - not_null
+      - name: total_units_sold
+        description: "Total quantity sold"
+        tests:
+          - not_null
+
+  - name: mart_customer_segments
+    description: "Customer behavior analysis with spending-based segmentation"
+    columns:
+      - name: user_id
+        description: "Customer identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_segment
+        description: "Segment label: VIP, Regular, Occasional, or One-time"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [ "VIP", "Regular", "Occasional", "One-time" ]
+      - name: total_spent
+        description: "Lifetime spending (net of discounts)"
+        tests:
+          - not_null
+      - name: total_orders
+        description: "Lifetime order count"
+        tests:
+          - not_null
